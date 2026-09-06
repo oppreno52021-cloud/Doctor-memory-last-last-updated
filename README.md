@@ -1,11 +1,42 @@
-<div align="center">
+# DOCTOR MEMORY APK 🩺💊
 
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+تطبيق ذكي متكامل ومبسط لإدارة وتنظيم زيارات مندوبي الدعاية الطبية (Medical Representatives)، وقاعدة بيانات الأطباء والمنتجات والاعتراضات والتقارير الميدانية.
 
-  <h1>Built with AI Studio</h2>
+---
 
-  <p>The fastest path from prompt to production with Gemini.</p>
+## 🚀 كيفية تنزيل المشروع كملف مضغوط (Download ZIP):
+من واجهة منصة **Google AI Studio**:
+1. اضغط على أيقونة الإعدادات **⚙️ Settings** أو قائمة الخيارات **`...`** في أعلى يمين الشاشة (بجوار زر Share أو Deploy).
+2. اختر **"Export to ZIP"** أو **"Export to GitHub"**.
+3. سيتم تنزيل كامل ملفات المشروع كملف `zip` على جهازك جاهز للاستخدام مباشرة.
 
-  <a href="https://aistudio.google.com/apps">Start building</a>
+---
 
-</div>
+## 📱 كيفية تحويل الكود إلى ملف APK عبر GitHub تلقائياً:
+
+تم تضمين ملف مسار العمل التلقائي **`.github/workflows/build-apk.yml`** داخل هذا المشروع:
+
+1. **ارفع الكود إلى GitHub**:
+   - أنشئ مستودعاً جديداً (New Repository) في حسابك على GitHub.
+   - فك ضغط ملف الـ ZIP وارفع الملفات، أو اضغط مباشرة على **Export to GitHub** من قائمة AI Studio.
+2. **البناء التلقائي**:
+   - بمجرد رفع الكود، سيبدأ GitHub Actions بالعمل تلقائياً في تبويب **Actions**.
+3. **تنزيل ملف الـ APK**:
+   - ادخل على تبويب **Actions** في مستودعك على GitHub.
+   - اضغط على أحدث تشغيل (Workflow run: `Build Android APK`).
+   - ستجد في أسفل الصفحة ملف **`DoctorMemory-APK`** جاهزاً للتحميل المباشر وتثبيته على هاتفك الأندرويد فوراً!
+
+---
+
+## 🛠️ أوامر التطوير والتشغيل محلياً:
+
+```bash
+# تثبيت الحزم
+npm install
+
+# تشغيل وضع التطوير
+npm run dev
+
+# بناء النسخة الإنتاجية
+npm run build
+```

@@ -1,0 +1,15 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="200" height="200" rx="40" fill="#ffffff" />
+  <circle cx="100" cy="85" r="54" stroke="#0a3d62" stroke-width="8.5" fill="none" />
+  <rect x="94" y="77" width="18" height="18" rx="2.5" fill="#0a3d62" />
+  <path d="M100 56 H116 V72 H132 V98 H116 V114 H100 V95 H111 V76 H100 Z" fill="#0a3d62" />
+  <path d="M98 56 C 88 56, 81 59, 75 65 C 69 67, 65 73, 66 79 C 63 83, 63 88, 66 92 C 65 98, 69 104, 75 106 C 80 111, 89 114, 98 114 L 98 95 C 90 95, 84 92, 81 87 C 78 82, 79 77, 82 73 C 87 67, 93 66, 98 67 Z" fill="#0a3d62" />
+  <path d="M94 80 L82 70 L76 72" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+  <circle cx="75" cy="72" r="2.5" fill="white" />
+  <path d="M94 86 L78 86 L71 83" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+  <circle cx="70" cy="83" r="2.5" fill="white" />
+  <path d="M94 91 L84 99 L78 96" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+  <circle cx="76" cy="96" r="2.5" fill="white" />
+  <text x="100" y="156" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="900" font-size="16" fill="#0a3d62" letter-spacing="2">DOCTOR</text>
+  <text x="100" y="174" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="700" font-size="11" fill="#0e638e" letter-spacing="2">MEMORY APK</text>
+</svg>

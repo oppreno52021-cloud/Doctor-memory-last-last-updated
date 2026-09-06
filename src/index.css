@@ -1,0 +1,680 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Global Font Size Scaling for Field Medical Reps */
+html, html[data-font-size="normal"] {
+  font-size: 15px;
+}
+
+html[data-font-size="medium"] {
+  font-size: 16.5px;
+}
+
+html[data-font-size="large"] {
+  font-size: 18px;
+}
+
+/* Ensure smooth readability and proportional spacing when font is scaled */
+html[data-font-size="large"] body {
+  line-height: 1.6;
+}
+
+html[data-font-size="large"] .badge-pill {
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
+}
+
+/* ==========================================================================
+   DOCTOR MEMORY - CENTRAL DESIGN TOKEN SYSTEM
+   Brand Identity: Navy + Medical Blue + Teal Accent
+   ========================================================================== */
+
+:root {
+  /* LIGHT MODE TOKENS */
+  --dm-bg-app: #F8FAFC;
+  --dm-surface-card: #FFFFFF;
+  --dm-surface-elevated: #FFFFFF;
+  --dm-surface-sub: #EAF0F6;
+  --dm-surface-input: #F1F5F9;
+  --dm-text-main: #000000;
+  --dm-text-body: #0F172A;
+  --dm-text-secondary: #475569;
+  --dm-text-muted: #64748B;
+  --dm-border: #E2E8F0;
+  --dm-border-subtle: #E2E8F0;
+
+  /* Primary Brand: Executive Navy */
+  --dm-primary: #0A3D62;
+  --dm-primary-dark: #083150;
+  --dm-primary-light: #1A5276;
+  --dm-primary-bg: rgba(10, 61, 98, 0.08);
+  --dm-primary-border: rgba(10, 61, 98, 0.18);
+
+  /* Secondary Accent / Success / Highlights */
+  --dm-accent-teal: #14B8A6;
+  --dm-accent-teal-light: #2DD4BF;
+  --dm-accent-teal-dark: #0F766E;
+  --dm-accent-teal-bg: #F0FDFA;
+  --dm-accent-teal-border: #99F6E4;
+
+  /* Status Colors */
+  --dm-success: #065F46;
+  --dm-success-bg: #ECFDF5;
+  --dm-success-border: #A7F3D0;
+
+  --dm-warning: #92400E;
+  --dm-warning-bg: #FFFBEB;
+  --dm-warning-border: #FDE68A;
+
+  --dm-error: #9F1239;
+  --dm-error-bg: #FFF1F2;
+  --dm-error-border: #FECDD3;
+}
+
+html.dark {
+  color-scheme: dark;
+
+  /* DARK MODE TOKENS */
+  --dm-bg-app: #0F1724;
+  --dm-surface-card: #152337;
+  --dm-surface-elevated: #1B2A3D;
+  --dm-text-main: #F5F7FA;
+  --dm-text-secondary: #9AA8B8;
+  --dm-text-muted: #64748B;
+  --dm-border: #26384D;
+  --dm-border-subtle: #1E2E42;
+
+  /* Primary Brand: Medical Blue */
+  --dm-primary: #1976D2;
+  --dm-primary-dark: #1565C0;
+  --dm-primary-light: #42A5F5;
+  --dm-primary-bg: rgba(25, 118, 210, 0.16);
+  --dm-primary-border: rgba(25, 118, 210, 0.35);
+
+  /* Accent: Medical Teal */
+  --dm-accent-teal: #00A6A6;
+  --dm-accent-teal-light: #26C6B8;
+  --dm-accent-teal-dark: #008F87;
+  --dm-accent-teal-bg: rgba(0, 166, 166, 0.16);
+  --dm-accent-teal-border: rgba(0, 166, 166, 0.35);
+
+  /* Status Colors */
+  --dm-success: #2E9B72;
+  --dm-success-bg: rgba(46, 155, 114, 0.16);
+  --dm-success-border: rgba(46, 155, 114, 0.35);
+
+  --dm-warning: #D99A24;
+  --dm-warning-bg: rgba(217, 154, 36, 0.16);
+  --dm-warning-border: rgba(217, 154, 36, 0.35);
+
+  --dm-error: #D95757;
+  --dm-error-bg: rgba(217, 87, 87, 0.16);
+  --dm-error-border: rgba(217, 87, 87, 0.35);
+}
+
+/* ==========================================================================
+   LIGHT THEME BASE STYLES
+   ========================================================================== */
+html,
+body {
+  background-color: var(--dm-bg-app);
+  color: var(--dm-text-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+html:not(.dark),
+html:not(.dark) body,
+html:not(.dark) #root,
+html:not(.dark) .min-h-screen {
+  background-color: #F8FAFC !important;
+}
+
+/* Canvas & Card Surfaces in Light Mode */
+.bg-canvas {
+  background-color: var(--dm-bg-app);
+}
+
+.bg-white {
+  background-color: var(--dm-surface-card) !important;
+  color: var(--dm-text-body);
+}
+
+.bg-slate-50 {
+  background-color: var(--dm-surface-input) !important;
+}
+
+.bg-slate-100 {
+  background-color: var(--dm-surface-sub) !important;
+  color: var(--dm-text-body);
+}
+
+.bg-slate-200 {
+  background-color: var(--dm-border) !important;
+}
+
+/* Text Hierarchy in Light Mode */
+.text-slate-900,
+.text-black {
+  color: var(--dm-text-main) !important;
+}
+
+.text-slate-800,
+.text-slate-700 {
+  color: var(--dm-text-body) !important;
+}
+
+.text-slate-600 {
+  color: var(--dm-text-secondary) !important;
+}
+
+.text-slate-500,
+.text-slate-400 {
+  color: var(--dm-text-muted) !important;
+}
+
+/* Input Fields & Textareas (Light Mode) */
+input:not([type="checkbox"]):not([type="radio"]),
+textarea,
+select {
+  background-color: var(--dm-surface-input) !important;
+  border-color: var(--dm-border) !important;
+  color: var(--dm-text-main) !important;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--dm-text-muted) !important;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--dm-primary) !important;
+  --tw-ring-color: var(--dm-primary-border) !important;
+}
+
+/* Borders in Light Mode */
+.border-slate-200,
+.border-slate-200\/60,
+.border-slate-200\/70,
+.border-slate-200\/80,
+.border-slate-200\/90 {
+  border-color: var(--dm-border) !important;
+}
+
+.border-slate-100 {
+  border-color: var(--dm-border-subtle) !important;
+}
+
+/* ==========================================================================
+   PRIMARY BRAND (MEDICAL BLUE) IN LIGHT MODE
+   ========================================================================== */
+.text-\[\#0a3d62\],
+.text-\[\#0A3D62\] {
+  color: var(--dm-primary) !important;
+}
+
+.bg-\[\#0a3d62\],
+.bg-\[\#0A3D62\] {
+  background-color: var(--dm-primary) !important;
+  color: #FFFFFF !important;
+  font-weight: 700;
+}
+
+.hover\:bg-\[\#083150\]:hover,
+.bg-\[\#0a3d62\]:hover,
+.bg-\[\#0A3D62\]:hover {
+  background-color: var(--dm-primary-dark) !important;
+}
+
+.active\:bg-\[\#083150\]:active,
+.bg-\[\#0a3d62\]:active,
+.bg-\[\#0A3D62\]:active {
+  background-color: var(--dm-primary-dark) !important;
+}
+
+.bg-\[\#0a3d62\]\/10,
+.bg-\[\#0A3D62\]\/10 {
+  background-color: var(--dm-primary-bg) !important;
+  color: var(--dm-primary) !important;
+}
+
+.bg-\[\#0a3d62\]\/5,
+.bg-\[\#0A3D62\]\/5,
+.bg-\[\#0a3d62\]\/8,
+.bg-\[\#0A3D62\]\/8 {
+  background-color: rgba(10, 61, 98, 0.06) !important;
+}
+
+.border-\[\#0a3d62\],
+.border-\[\#0A3D62\] {
+  border-color: var(--dm-primary) !important;
+}
+
+.border-\[\#0a3d62\]\/15,
+.border-\[\#0A3D62\]\/15,
+.border-\[\#0a3d62\]\/20,
+.border-\[\#0A3D62\]\/20,
+.border-\[\#0a3d62\]\/30,
+.border-\[\#0A3D62\]\/30,
+.border-\[\#0a3d62\]\/40,
+.border-\[\#0A3D62\]\/40 {
+  border-color: var(--dm-primary-border) !important;
+}
+
+.ring-\[\#0a3d62\] {
+  --tw-ring-color: var(--dm-primary) !important;
+}
+
+.ring-\[\#0a3d62\]\/20,
+.ring-\[\#0a3d62\]\/30 {
+  --tw-ring-color: var(--dm-primary-border) !important;
+}
+
+/* Blue Helpers */
+.bg-blue-50 {
+  background-color: var(--dm-primary-bg) !important;
+  color: var(--dm-primary) !important;
+  border-color: var(--dm-primary-border) !important;
+}
+
+.text-blue-600,
+.text-blue-700,
+.text-blue-800 {
+  color: var(--dm-primary) !important;
+}
+
+/* ==========================================================================
+   ACCENT COLOR (MEDICAL TEAL) IN LIGHT MODE
+   Used selectively for clinical insights, AI brief, and targeted badges
+   ========================================================================== */
+.text-teal-600,
+.text-teal-700,
+.text-teal-800,
+.text-teal-900,
+.text-teal-950 {
+  color: var(--dm-accent-teal) !important;
+}
+
+.bg-teal-600,
+.bg-teal-700 {
+  background-color: var(--dm-accent-teal) !important;
+  color: #FFFFFF !important;
+  font-weight: 700;
+}
+
+.hover\:bg-teal-700:hover,
+.hover\:bg-teal-800:hover {
+  background-color: var(--dm-accent-teal-dark) !important;
+}
+
+.bg-teal-50,
+.bg-teal-100 {
+  background-color: var(--dm-accent-teal-bg) !important;
+  color: var(--dm-accent-teal) !important;
+  border-color: var(--dm-accent-teal-border) !important;
+}
+
+.border-teal-200,
+.border-teal-300,
+.border-teal-600 {
+  border-color: var(--dm-accent-teal-border) !important;
+}
+
+/* ==========================================================================
+   STATUS COLORS IN LIGHT MODE
+   ========================================================================== */
+/* Success (Completed) */
+.bg-emerald-50,
+.bg-emerald-100 {
+  background-color: var(--dm-success-bg) !important;
+  color: var(--dm-success) !important;
+  border-color: var(--dm-success-border) !important;
+}
+
+.text-emerald-600,
+.text-emerald-700,
+.text-emerald-800,
+.text-emerald-900,
+.text-emerald-950 {
+  color: var(--dm-success) !important;
+}
+
+.bg-emerald-600,
+.bg-emerald-700 {
+  background-color: var(--dm-success) !important;
+  color: #FFFFFF !important;
+}
+
+/* Warning (Follow-up / Pending) */
+.bg-amber-50,
+.bg-amber-100 {
+  background-color: var(--dm-warning-bg) !important;
+  color: var(--dm-warning) !important;
+  border-color: var(--dm-warning-border) !important;
+}
+
+.text-amber-700,
+.text-amber-800,
+.text-amber-900,
+.text-amber-950 {
+  color: var(--dm-warning) !important;
+}
+
+.bg-amber-600,
+.bg-amber-700 {
+  background-color: var(--dm-warning) !important;
+  color: #FFFFFF !important;
+}
+
+/* Error / Objection */
+.bg-rose-50,
+.bg-rose-100,
+.bg-red-50 {
+  background-color: var(--dm-error-bg) !important;
+  color: var(--dm-error) !important;
+  border-color: var(--dm-error-border) !important;
+}
+
+.text-rose-600,
+.text-rose-700,
+.text-rose-800,
+.text-rose-900,
+.text-red-600 {
+  color: var(--dm-error) !important;
+}
+
+.bg-rose-600,
+.bg-rose-700,
+.bg-red-600 {
+  background-color: var(--dm-error) !important;
+  color: #FFFFFF !important;
+}
+
+/* ==========================================================================
+   DARK MODE OVERRIDES (EXECUTIVE NAVY + MEDICAL BLUE + TEAL ACCENT)
+   ========================================================================== */
+html.dark body {
+  background-color: var(--dm-bg-app) !important;
+  color: var(--dm-text-main) !important;
+}
+
+html.dark .bg-canvas {
+  background-color: var(--dm-bg-app) !important;
+}
+
+html.dark .bg-slate-50 {
+  background-color: var(--dm-bg-app) !important;
+}
+
+/* Cards & Elevated Surfaces in Dark Mode */
+html.dark .bg-white {
+  background-color: var(--dm-surface-card) !important;
+  color: var(--dm-text-main) !important;
+}
+
+html.dark .bg-white\/95,
+html.dark .bg-white\/98 {
+  background-color: rgba(21, 35, 55, 0.96) !important;
+}
+
+html.dark .bg-slate-100 {
+  background-color: var(--dm-surface-elevated) !important;
+  color: var(--dm-text-main) !important;
+}
+
+html.dark .bg-slate-200 {
+  background-color: #22354C !important;
+}
+
+/* Text Hierarchy in Dark Mode */
+html.dark .text-slate-900,
+html.dark .text-slate-800 {
+  color: var(--dm-text-main) !important;
+}
+
+html.dark .text-slate-700 {
+  color: #DCE4EC !important;
+}
+
+html.dark .text-slate-600,
+html.dark .text-slate-500 {
+  color: var(--dm-text-secondary) !important;
+}
+
+html.dark .text-slate-400 {
+  color: var(--dm-text-muted) !important;
+}
+
+/* Borders in Dark Mode */
+html.dark .border-slate-100,
+html.dark .border-slate-200,
+html.dark .border-slate-200\/60,
+html.dark .border-slate-200\/70,
+html.dark .border-slate-200\/80,
+html.dark .border-slate-200\/90 {
+  border-color: var(--dm-border) !important;
+}
+
+/* Primary Brand (Medical Blue) in Dark Mode */
+html.dark .text-\[\#0a3d62\] {
+  color: var(--dm-primary-light) !important;
+}
+
+html.dark .bg-\[\#0a3d62\] {
+  background-color: var(--dm-primary) !important;
+  color: #FFFFFF !important;
+}
+
+html.dark .hover\:bg-\[\#083150\]:hover {
+  background-color: var(--dm-primary-dark) !important;
+}
+
+html.dark .bg-\[\#0a3d62\]\/10 {
+  background-color: var(--dm-primary-bg) !important;
+  color: var(--dm-primary-light) !important;
+}
+
+html.dark .bg-\[\#0a3d62\]\/5 {
+  background-color: rgba(25, 118, 210, 0.08) !important;
+}
+
+html.dark .border-\[\#0a3d62\] {
+  border-color: var(--dm-primary) !important;
+}
+
+html.dark .border-\[\#0a3d62\]\/20,
+html.dark .border-\[\#0a3d62\]\/30,
+html.dark .border-\[\#0a3d62\]\/40 {
+  border-color: var(--dm-primary-border) !important;
+}
+
+html.dark .ring-\[\#0a3d62\]\/20 {
+  --tw-ring-color: var(--dm-primary-border) !important;
+}
+
+/* Blue Helpers in Dark Mode */
+html.dark .bg-blue-50 {
+  background-color: var(--dm-primary-bg) !important;
+  color: var(--dm-primary-light) !important;
+  border-color: var(--dm-primary-border) !important;
+}
+
+html.dark .text-blue-600,
+html.dark .text-blue-700,
+html.dark .text-blue-800 {
+  color: var(--dm-primary-light) !important;
+}
+
+/* Medical Teal Accent in Dark Mode */
+html.dark .text-teal-600,
+html.dark .text-teal-700,
+html.dark .text-teal-800,
+html.dark .text-teal-900,
+html.dark .text-teal-950 {
+  color: var(--dm-accent-teal-light) !important;
+}
+
+html.dark .bg-teal-600,
+html.dark .bg-teal-700 {
+  background-color: var(--dm-accent-teal) !important;
+  color: #FFFFFF !important;
+}
+
+html.dark .hover\:bg-teal-700:hover,
+html.dark .hover\:bg-teal-800:hover {
+  background-color: var(--dm-accent-teal-dark) !important;
+}
+
+html.dark .bg-teal-50,
+html.dark .bg-teal-100 {
+  background-color: var(--dm-accent-teal-bg) !important;
+  color: var(--dm-accent-teal-light) !important;
+  border-color: var(--dm-accent-teal-border) !important;
+}
+
+html.dark .border-teal-200,
+html.dark .border-teal-300,
+html.dark .border-teal-600 {
+  border-color: var(--dm-accent-teal-border) !important;
+}
+
+/* Status Colors in Dark Mode */
+html.dark .bg-emerald-50,
+html.dark .bg-emerald-100 {
+  background-color: var(--dm-success-bg) !important;
+  color: #48C496 !important;
+  border-color: var(--dm-success-border) !important;
+}
+
+html.dark .text-emerald-700,
+html.dark .text-emerald-800,
+html.dark .text-emerald-900,
+html.dark .text-emerald-950 {
+  color: #48C496 !important;
+}
+
+html.dark .bg-emerald-600,
+html.dark .bg-emerald-700 {
+  background-color: var(--dm-success) !important;
+  color: #FFFFFF !important;
+}
+
+html.dark .bg-amber-50,
+html.dark .bg-amber-100 {
+  background-color: var(--dm-warning-bg) !important;
+  color: #F0B346 !important;
+  border-color: var(--dm-warning-border) !important;
+}
+
+html.dark .text-amber-700,
+html.dark .text-amber-800,
+html.dark .text-amber-900,
+html.dark .text-amber-950 {
+  color: #F0B346 !important;
+}
+
+html.dark .bg-amber-600,
+html.dark .bg-amber-700 {
+  background-color: var(--dm-warning) !important;
+  color: #FFFFFF !important;
+}
+
+html.dark .bg-rose-50,
+html.dark .bg-rose-100,
+html.dark .bg-red-50 {
+  background-color: var(--dm-error-bg) !important;
+  color: #F27C7C !important;
+  border-color: var(--dm-error-border) !important;
+}
+
+html.dark .text-rose-600,
+html.dark .text-rose-700,
+html.dark .text-rose-800 {
+  color: #F27C7C !important;
+}
+
+html.dark .bg-rose-600,
+html.dark .bg-rose-700,
+html.dark .bg-red-600 {
+  background-color: var(--dm-error) !important;
+  color: #FFFFFF !important;
+}
+
+/* Inputs in Dark Mode */
+html.dark input:not([type="checkbox"]),
+html.dark select,
+html.dark textarea {
+  background-color: var(--dm-surface-elevated) !important;
+  color: var(--dm-text-main) !important;
+  border-color: var(--dm-border) !important;
+}
+
+html.dark input[type="checkbox"] {
+  background-color: var(--dm-surface-elevated) !important;
+  accent-color: var(--dm-primary) !important;
+  border-color: var(--dm-border) !important;
+}
+
+html.dark input::placeholder,
+html.dark textarea::placeholder {
+  color: var(--dm-text-muted) !important;
+}
+
+html.dark input:focus,
+html.dark textarea:focus,
+html.dark select:focus {
+  border-color: var(--dm-primary-light) !important;
+  --tw-ring-color: var(--dm-primary-border) !important;
+}
+
+/* Subtle non-excessive dark shadows */
+html.dark .shadow-xs,
+html.dark .shadow-sm {
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.35) !important;
+}
+
+html.dark .shadow-md,
+html.dark .shadow-lg,
+html.dark .shadow-2xl {
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45) !important;
+}
+
+/* Global Select / Dropdown Right-Alignment for Arabic RTL */
+select {
+  direction: rtl !important;
+  text-align: right !important;
+  text-align-last: right !important;
+  -webkit-text-align-last: right !important;
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23475569' stroke-width='2.2'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M19 9l-7 7-7-7'/%3E%3C/svg%3E") !important;
+  background-repeat: no-repeat !important;
+  background-position: left 0.65rem center !important;
+  background-size: 0.95rem 0.95rem !important;
+  padding-left: 2rem !important;
+  padding-right: 0.75rem !important;
+}
+
+select.no-arrow {
+  background-image: none !important;
+}
+
+html.dark select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2394a3b8' stroke-width='2.2'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M19 9l-7 7-7-7'/%3E%3C/svg%3E") !important;
+}
+
+html.dark select.no-arrow {
+  background-image: none !important;
+}
+
+select option,
+select optgroup {
+  direction: rtl !important;
+  text-align: right !important;
+  text-align-last: right !important;
+  padding: 0.5rem 0.75rem !important;
+}
+

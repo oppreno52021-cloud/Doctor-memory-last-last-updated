@@ -1,0 +1,7 @@
+{
+  "name": "DOCTOR MEMORY APK",
+  "description": "تطبيق DOCTOR MEMORY APK لإدارة وتنظيم زيارات مندوبي الدعاية الطبية، وقاعدة بيانات الأطباء والمنتجات والاعتراضات والتقارير الميدانية",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+
